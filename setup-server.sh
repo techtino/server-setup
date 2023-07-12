@@ -1,7 +1,7 @@
 #!/bin/bash
 
-CONTAINER_DIR=$HOME/containers/
-CONTAINER_BACKUP_DIR=/mnt/nas/Backups/containers/
+CONTAINER_DIR=$HOME/containers
+CONTAINER_BACKUP_DIR=/mnt/nas/Backups/containers
 NAS_IP=192.168.0.132
 green='\033[0;32m'
 clear_colour='\033[0m'
@@ -62,10 +62,10 @@ DATE=\$(date +'%d-%m-%Y')
 mkdir -p $CONTAINER_BACKUP_DIR\$DATE
 
 # Use rsync to backup, using hard links for unchanged files
-rsync -avP --link-dest=$CONTAINER_BACKUP_DIR\$(date -d '1 day ago' +'%d-%m-%Y') $CONTAINER_DIR $CONTAINER_BACKUP_DIR\$DATE/containers/
+rsync -avP --link-dest=$CONTAINER_BACKUP_DIR/\$(date -d '1 day ago' +'%d-%m-%Y') $CONTAINER_DIR/ $CONTAINER_BACKUP_DIR/\$DATE/containers/
 
 # Update 'latest' symlink to point to the most recent backup
-ln -sfn $CONTAINER_BACKUP_DIR\$DATE $CONTAINER_BACKUP_DIRlatest
+ln -sfn $CONTAINER_BACKUP_DIR/\$DATE $CONTAINER_BACKUP_DIR/latest
 EOF
 
 sudo chmod +x /usr/local/bin/snapshot-containers
