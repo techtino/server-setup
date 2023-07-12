@@ -17,11 +17,11 @@ echo -e "${green}Setting up container startup service:${clear_colour} \n"
 cat << EOF | sudo tee '/etc/systemd/system/start-containers.service'
 [Unit]
 Description=Run Docker Containers
-AFter=docker.service
+After=docker.service
 
 [Service]
 Type=simple
-WorkingDir=$CONTAINER_DIR
+WorkingDirectory=$CONTAINER_DIR/
 ExecStart=docker-compose up --remove-orphans
 ExecStop=docker-compose down
 
