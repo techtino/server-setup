@@ -36,7 +36,7 @@ cat << EOF | sudo tee '/etc/systemd/system/mnt-nas.mount'
 [Unit]
 Description=Mount TechTino TrueNAS
 After=network-online.target
-After=start-containers.service
+Before=start-containers.service
 
 [Mount]
 What=$NAS_IP:/mnt/NAS/Storage
