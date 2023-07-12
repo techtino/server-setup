@@ -9,3 +9,6 @@ This is my server setup script I use for setting up:
 6. Setup a systemd timer that will run the backup daily at 10am. (This is almost definitely overkill).
 
 This is mostly use for my home server.
+
+Notes for future self:
+Debian by default doesn't setup systemd-networkd or networkmanager if you install it without a gui. This is obviously fine, except for the fact that network-online.target relies on either systemd-networkd (systemd-networkd-wait-online.service) or networkmanager (NetworkManager-wait-online.service). In this case I set up systemd-networkd as per https://wiki.debian.org/SystemdNetworkd and then enabled systemd-networkd-wait-online, so it's now working.
