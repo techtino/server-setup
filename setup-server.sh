@@ -2,7 +2,7 @@
 
 CONTAINER_DIR=$HOME/containers
 CONTAINER_BACKUP_DIR=/mnt/nas/Backups/containers
-NAS_IP=192.168.0.132
+NAS_IP=192.168.0.118
 green='\033[0;32m'
 clear_colour='\033[0m'
 
